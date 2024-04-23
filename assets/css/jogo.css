@@ -1,0 +1,201 @@
+@import url(color.css);
+
+/* arrow animation */
+@keyframes slide-right {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-10px);
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#telaPrincipal {
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+
+    & #section1 {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & #inventario {
+            width: 50%;
+            height: 100%;
+
+            & ul {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                & li {
+                    text-align: center;
+                    list-style: none;
+                    background-color: azure;
+                }
+            }
+        }
+
+        & #divMapa {
+            width: 50%;
+            height: 100;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            flex-direction: row;
+            padding-inline: 20px;
+
+            & p{
+                background-color: azure;
+            }
+        }
+    }
+
+    & #section2 {
+        width: 100%;
+        height: 10%;
+
+        & #local {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            width: 100%;
+            height: 100%;
+            & p{
+                background-color: azure;
+            }
+        }
+
+    }
+
+    & #section3 {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        & #mudarComodo {
+            width: 32.5%;
+            height: 100%;
+
+            & .button {
+                margin: 50px;
+                width: 50%;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+                padding: 0px 15px;
+                background-color: rgb(66, 66, 66);
+                border-radius: 10px;
+                color: white;
+                border: none;
+                position: relative;
+                cursor: pointer;
+                transition-duration: .2s;
+                font-size: 20px;
+
+                & .arrow {
+                    position: absolute;
+                    right: 0;
+                    width: 30px;
+                    height: 100%;
+                    font-size: 18px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            & .button:hover {
+                background-color: rgb(77, 77, 77);
+                transition-duration: .2s;
+            }
+
+            & .button:hover .arrow {
+                animation: slide-right .6s ease-out both;
+            }
+
+            & .button:active {
+                transform: translate(1px, 1px);
+                transition-duration: .2s;
+            }
+
+        }
+
+        & #divPergunta {
+            width: 35%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 50px;
+
+            & h1 {
+                width: 100%;
+                text-align: center;
+                height: 10%;
+            }
+
+            & p {
+                width: 100%;
+                text-align: center;
+                max-height: 70%;
+            }
+        }
+
+        & #divSeparador {
+            width: 32.5%;
+            height: 100%;
+        }
+    }
+
+    & #section4 {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        & .respostas {
+            width: 30%;
+            height: 50%;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+
+    & #section5 {
+        background-color: brown;
+        width: 100%;
+        height: 10%;
+        & #configuracao {
+            display: flex;
+            flex-direction: left;
+            justify-content: bottom;
+        }
+
+        & #tempoJogo {}
+    }
+}
