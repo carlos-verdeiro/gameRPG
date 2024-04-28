@@ -22,7 +22,7 @@
 #telaPrincipal {
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
+    background-color: var(--tela-principal);
 
     & #section1 {
         width: 100%;
@@ -45,7 +45,18 @@
                 & li {
                     text-align: center;
                     list-style: none;
-                    background-color: azure;
+                }
+
+                & .possui {
+                    color: green;
+                }
+
+                & .naoPossui {
+                    color: red;
+                }
+
+                & .verificacao {
+                    color: yellow;
                 }
             }
         }
@@ -57,9 +68,9 @@
             align-items: center;
             justify-content: right;
             flex-direction: row;
-            padding-inline: 20px;
+            padding-inline: 30px;
 
-            & p{
+            & p {
                 background-color: azure;
             }
         }
@@ -75,7 +86,9 @@
             justify-content: left;
             width: 100%;
             height: 100%;
-            & p{
+
+            & p {
+                margin-left: 50px;
                 background-color: azure;
             }
         }
@@ -188,8 +201,13 @@
 
     & #section5 {
         background-color: brown;
-        width: 100%;
+        width: 90%;
         height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 5%;
+
         & #configuracao {
             display: flex;
             flex-direction: left;
