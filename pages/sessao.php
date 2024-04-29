@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION['status'])) {
+if (isset($_SESSION['status'])&&isset($_GET['continuar'])) {
 
     $status = $_SESSION['status'];
     $localAtual = $_SESSION['localAtual'];
@@ -25,4 +25,3 @@ if (isset($_SESSION['status'])) {
     header("Location: game/hall.php");
     exit;
 }
-?>

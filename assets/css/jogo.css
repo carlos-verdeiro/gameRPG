@@ -33,7 +33,12 @@
 
         & #inventario {
             width: 50%;
-            height: 100%;
+            height: 70%;
+            background-color: rgba(0, 0, 0, 0.733);
+            border-radius: 80px;
+            margin: 20px;
+            margin-top: 50px;
+            text-align: center;
 
             & ul {
                 height: 100%;
@@ -41,22 +46,37 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                text-align: center;
 
                 & li {
                     text-align: center;
                     list-style: none;
-                }
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
 
-                & .possui {
-                    color: green;
-                }
+                    & img {
+                        height: 70%;
+                        width: 100%;
+                    }
 
-                & .naoPossui {
-                    color: red;
+                    & .possui {
+                        color: green;
+                    }
+
+                    & .naoPossui {
+                        color: red;
+                    }
                 }
 
                 & .verificacao {
-                    color: yellow;
+                    color: rgb(0, 0, 0);
+                    background-color: rgb(255, 187, 0);
+                    height: 70%;
+                    padding-inline: 10px;
+                    border-radius: 20px;
                 }
             }
         }
@@ -70,10 +90,27 @@
             flex-direction: row;
             padding-inline: 30px;
 
-            & p {
-                background-color: azure;
+            & img {
+                padding: 10px;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(66, 66, 66, 0.705);
+                fill: black !important;
+                border-radius: 10px;
+                margin: 20px;
+                margin-top: 50px;
+                text-align: center;
+                cursor: pointer;
+
+            }
+
+            & img:hover {
+                background-color: rgb(77, 77, 77);
+                transition-duration: .2s;
             }
         }
+
+
     }
 
     & #section2 {
@@ -87,9 +124,12 @@
             width: 100%;
             height: 100%;
 
-            & p {
+            & h3 {
                 margin-left: 50px;
-                background-color: azure;
+                background-color: rgba(240, 255, 255, 0.582);
+                padding: 5px;
+                border-radius: 5px;
+
             }
         }
 
@@ -110,13 +150,13 @@
             & .button {
                 margin: 50px;
                 width: 50%;
-                height: 80px;
+                height: 60px;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
                 gap: 10px;
                 padding: 0px 15px;
-                background-color: rgb(66, 66, 66);
+                background-color: rgba(66, 66, 66, 0.705);
                 border-radius: 10px;
                 color: white;
                 border: none;
@@ -160,18 +200,34 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            padding: 50px;
 
-            & h1 {
+            & content {
+                background-color: var(--fundo-inventario);
                 width: 100%;
-                text-align: center;
-                height: 10%;
-            }
+                height: 70%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 10px;
+                padding-inline: 50px;
+                border-radius: 20px;
+                color: var(--branco);
+                gap: 30px;
 
-            & p {
-                width: 100%;
-                text-align: center;
-                max-height: 70%;
+                overflow-y: auto;
+
+                & h1 {
+                    width: 100%;
+                    text-align: center;
+                    height: 10%;
+                }
+
+                & p {
+                    width: 100%;
+                    text-align: center;
+                    max-height: 70%;
+                }
             }
         }
 
@@ -191,16 +247,25 @@
         & .respostas {
             width: 30%;
             height: 50%;
-            background-color: aquamarine;
+            background-color: var(--respostas);
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            color: var(--preto);
+            font-size: 25px;
+            box-shadow: 0px 0px 5px var(--cinza);
+        }
+
+        & .respostas:hover {
+            background-color: rgb(192, 192, 192);
+            transition-duration: .2s;
         }
 
     }
 
     & #section5 {
-        background-color: brown;
         width: 90%;
         height: 10%;
         display: flex;
@@ -212,8 +277,81 @@
             display: flex;
             flex-direction: left;
             justify-content: bottom;
+            cursor: pointer;
+            height: 70%;
+            background-color: rgba(66, 66, 66, 0.705);
+            padding: 5px;
+            border-radius: 20px;
+        }
+
+        & #configuracao:hover {
+            background-color: rgb(77, 77, 77);
+            transition-duration: .2s;
         }
 
         & #tempoJogo {}
     }
+}
+
+
+/*POPUP MAPA*/
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: min-content;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    padding-inline: 100px;
+    background-color: white;
+    border: none;
+    box-shadow: 0px 0px 50px 0px gray;
+    border-radius: 12px;
+    z-index: 9999;
+    text-align: center;
+
+    & .closeBtnPopup {
+        width: 40px;
+        height: 40px;
+    }
+
+    & #ulConfiguracoes {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+
+        & li {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 10px;
+
+            & a {
+                width: 100%;
+                background-color: var(--cinza);
+                border-radius: 20px;
+                text-decoration: none;
+                color: var(--branco);
+                padding: 10px;
+            }
+
+            & #sairJogo {
+                background-color: var(--perigo);
+            }
+        }
+    }
+}
+
+.closeBtnPopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
