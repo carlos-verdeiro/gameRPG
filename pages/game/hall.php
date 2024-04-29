@@ -3,6 +3,11 @@
 session_start();
 
 function verificacaoItens($inv){
+    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca']  && !$inv['chaveInferior']  && $inv['verificacoes'] < 3) {
+        return true;
+    }else{
+        return false;
+    }
     
 }
 
@@ -106,7 +111,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
             </div>
             <div id="divPergunta">
                 <h1>Deseja verificar?</h1>
-                <p>Verificação se possui apenas os itens necessários para alcançar o tesouro secreto.</p>
+                <p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>
             </div>
             <div id="divSeparador">
 
