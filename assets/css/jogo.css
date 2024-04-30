@@ -22,7 +22,10 @@
 #telaPrincipal {
     width: 100vw;
     height: 100vh;
-    background-color: var(--tela-principal);
+    background-image: url(../../assets/img/background/hall.jpg);
+    background-size: 110%;
+    background-position-y: center;
+    background-position-x: center;
 
     & #section1 {
         width: 100%;
