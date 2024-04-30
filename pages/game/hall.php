@@ -112,11 +112,13 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         </section>
         <section id="section3">
             <div id="mudarComodo">
-                <button class="button" onclick="openPopup('popupComodo')">
-                    Mudar cômodo
+                <div id="subComodo">
+                <h3>Mudar Cômodo</h3>
+                <button class="button"> 
                     <div class="arrow">
                         << </div>
                 </button>
+                </div>
 
             </div>
             <div id="divPergunta">
@@ -139,9 +141,6 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                 <img src="../../assets/img/config.svg" alt="configurações">
             </div>
             </div>
-            <div id="tempoJogo">
-                <p>tempo</p>
-            </div>
         </section>
     </main>
 </body>
@@ -159,12 +158,6 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         <li><a href="?voltarMenu">Voltar para menu</a></li>
         <li><a href="?logout" id="sairJogo">Apagar jogo</a></li>
     </ul>
-</div>
-
-<div id="popupComodo" class="popup">
-    <img src="../../assets/img/exit.svg" id="closeBtnComodo " class="closeBtnPopup" onclick="closePopup('popupComodo')">
-    <h2>Cômodos</h2>
-    <p>Aqui vai aparecer os cômodos possíveis</p>
 </div>
 <script src="../../assets/js/popups.js"></script>
 
