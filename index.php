@@ -28,5 +28,3 @@
 </body>
 
 </html>
-
-https://prod.liveshare.vsengsaas.visualstudio.com/join?F4E47009898D9F3928F1CC4D2BEEE9238FB5

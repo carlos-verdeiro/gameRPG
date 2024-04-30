@@ -113,11 +113,27 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         <section id="section3">
             <div id="mudarComodo">
                 <div id="subComodo">
-                <h3>Mudar Cômodo</h3>
-                <button class="button"> 
-                    <div class="arrow">
-                        << </div>
-                </button>
+                    <h3>Mudar Cômodo</h3>
+                    <a href="cozinha.php" class="button">
+                        <h3>Cozinha</h3>
+                        <div class="arrow">
+                            << </div>
+                    </a>
+                    <a href="biblioteca.php" class="button">
+                        <h3>Biblioteca</h3>
+                        <div class="arrow">
+                            << </div>
+                    </a>
+                     <a href="pSuperior.php" class="button">
+                        <h3>Piso superior</h3>
+                        <div class="arrow">
+                            << </div>
+                    </a>
+                    <a href="pInferior.php" class="button">
+                        <h3>Piso Inferior</h3>
+                        <div class="arrow">
+                            << </div>
+                    </a>
                 </div>
 
             </div>
