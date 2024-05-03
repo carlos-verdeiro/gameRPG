@@ -14,7 +14,8 @@ function verificacaoItens($inv)
 
 if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
 
-    $status = $_SESSION['status'];
+    include_once ('../templates/manipularInventario.php');
+
     $inventario = $_SESSION['inventario'];
     $_SESSION['localAtual'] == 'hall';
 
@@ -39,6 +40,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         } else {
             header("Location: hall.php?semVerificacao");
         }
+
     }
 
     if (isset($_GET["logout"])) {
@@ -70,10 +72,13 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <main id="telaPrincipal">
         <section id="section1">
             <div id="inventario">
-                <?php include_once('../templates/inventario.php')?>
+                <?php include_once ('../templates/inventario.php') ?>
             </div>
             <div id="divMapa">
                 <img src="../../assets/img/map.svg" alt="mapa" onclick="openPopup('popupMapa')">
+            </div>
+            <div id="configuracao">
+                <img src="../../assets/img/config.svg" alt="configurações" onclick="openPopup('popupConfig')">
             </div>
         </section>
         <section id="section2">
@@ -96,7 +101,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                             << </div>
                     </a>
                     <a href="pSuperior.php" class="button">
-                        <h3>Piso superior</h3>
+                        <h3>Piso Superior</h3>
                         <div class="arrow">
                             << </div>
                     </a>
@@ -112,7 +117,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                 <content>
                     <?php
                     if (isset($_GET["semVerificacao"])) {
-                        echo "<span class='msgAlert'>Você não possui verificação!</span>";
+                        echo "<span class='msgAlert'>Você não possui verificações!</span>";
                     }
                     ?>
                     <h1>Deseja verificar?</h1>
@@ -127,12 +132,15 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
             <a href="?verificacao=true" id="verificacao" class="respostas">
                 Verificar
             </a>
+
+            <form action="" method="post" class="respostas">
+                <input type="hidden" name="addItem" value="panela">
+                <input type="submit" value="Pegar Panela" class="submitItem">
+            </form>
+
         </section>
         <section id="section5">
-            <div id="configuracao" onclick="openPopup('popupConfig')">
-                <img src="../../assets/img/config.svg" alt="configurações">
-            </div>
-            </div>
+            
         </section>
     </main>
 </body>

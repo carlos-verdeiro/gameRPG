@@ -1,28 +1,45 @@
 <?php
-    session_start();
 
-    if (isset($_POST["addItem"]) && $_POST["addItem"] != null) {
-        $item = $_POST["addItem"];
-        switch ($item) {
-            case 'revista':
-                $_SESSION['inventario'] ['revista'] == true;
+if (isset($_POST["addItem"]) && $_POST["addItem"] != null) {
+    $item = $_POST["addItem"];
+    switch ($item) {
+        case 'revista':
+            $_SESSION['inventario']['revista'] = true;
             break;
-            case 'livro':
-                $_SESSION['livro'] ['revista'] == true;
+        case 'livro':
+            $_SESSION['inventario']['livro'] = true;
             break;
-            case 'panela':
-                $_SESSION['panela'] ['revista'] == true;
+        case 'panela':
+            $_SESSION['inventario']['panela'] = true;
             break;
-            case 'faca':
-                $_SESSION['faca'] ['revista'] == true;
+        case 'faca':
+            $_SESSION['inventario']['faca'] = true;
             break;
-            case 'chaveInf':
-                $_SESSION['chaveInf'] ['revista'] == true;
+        case 'chave':
+            $_SESSION['inventario']['chave'] = true;
             break;
-            
-            default:
-                # code...
-                break;
-        }
     }
+}
+
+if (isset($_POST["rmItem"]) && $_POST["rmItem"] != null) {
+    $item = $_POST["rmItem"];
+    switch ($item) {
+        case 'revista':
+            $_SESSION['inventario']['revista'] = false;
+            break;
+        case 'livro':
+            $_SESSION['inventario']['livro'] = false;
+            break;
+        case 'panela':
+            $_SESSION['inventario']['panela'] = false;
+            break;
+        case 'faca':
+            $_SESSION['inventario']['faca'] = false;
+            break;
+        case 'chave':
+            $_SESSION['inventario']['chave'] = false;
+            break;
+    }
+}
+
 ?>

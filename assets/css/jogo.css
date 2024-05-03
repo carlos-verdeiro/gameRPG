@@ -93,7 +93,6 @@
             align-items: center;
             justify-content: right;
             flex-direction: row;
-            padding-inline: 30px;
 
             & img {
                 padding: 10px;
@@ -115,6 +114,33 @@
             }
         }
 
+        & #configuracao {
+            height: 100;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            flex-direction: row;
+            padding-right: 30px;
+
+            & img {
+                padding: 10px;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(66, 66, 66, 0.705);
+                fill: black !important;
+                border-radius: 10px;
+                margin: 20px;
+                margin-top: 50px;
+                text-align: center;
+                cursor: pointer;
+
+            }
+
+            & img:hover {
+                background-color: rgb(77, 77, 77);
+                transition-duration: .2s;
+            }
+        }
 
     }
 
@@ -283,12 +309,24 @@
             color: var(--preto);
             font-size: 25px;
             box-shadow: 0px 0px 5px var(--cinza);
+
+            & .submitItem{
+                border: none;
+                background-color: inherit;
+                font-size: inherit;
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+                color: inherit;
+                cursor: pointer;
+            }
         }
 
         & .respostas:hover {
             background-color: rgb(192, 192, 192);
             transition-duration: .2s;
         }
+
 
     }
 
@@ -299,24 +337,6 @@
         align-items: center;
         justify-content: space-between;
         padding-inline: 5%;
-
-        & #configuracao {
-            display: flex;
-            flex-direction: left;
-            justify-content: bottom;
-            cursor: pointer;
-            height: 70%;
-            background-color: rgba(66, 66, 66, 0.705);
-            padding: 5px;
-            border-radius: 20px;
-        }
-
-        & #configuracao:hover {
-            background-color: rgb(77, 77, 77);
-            transition-duration: .2s;
-        }
-
-        & #tempoJogo {}
     }
 }
 

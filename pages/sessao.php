@@ -17,7 +17,7 @@ if (isset($_SESSION['status'])&&isset($_GET['continuar'])) {
         'livro' => false,
         'panela' => false,
         'faca' => false,
-        'chaveInferior' => false,
+        'chave' => false,
         'verificacoes' => 0
     ];
     $_SESSION['localAtual'] = 'hall';

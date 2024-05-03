@@ -25,7 +25,7 @@
             echo '<li><img src="../../assets/img/inventario/facaNaoPossui.svg" class="naoPossui" alt="Não Possui Faca" title="Não Possui Faca"></li>';
         }
 
-        if ($inventario['chaveInferior']) {
+        if ($inventario['chave']) {
             echo '<li><img src="../../assets/img/inventario/chavePossui.svg" class="possui" alt="Possui Chave Inferior" title="Possui Chave Inferior"></li>';
         } else {
             echo '<li><img src="../../assets/img/inventario/chaveNaoPossui.svg" class="naoPossui" alt="Não Possui Chave Inferior" title="Não Possui Chave Inferior"></li>';
