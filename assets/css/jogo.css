@@ -23,9 +23,11 @@
     width: 100vw;
     height: 100vh;
     background-image: url(../../assets/img/background/hall.jpg);
-    background-size: 110%;
+    background-size: 110% 110%;
     background-position-y: center;
     background-position-x: center;
+    background-repeat: no-repeat;
+    
 
     & #section1 {
         width: 100%;
@@ -231,8 +233,16 @@
                 border-radius: 20px;
                 color: var(--branco);
                 gap: 30px;
-
                 overflow-y: auto;
+
+                & .msgAlert{
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: var(--preto);
+                    background-color: var(--alerta-fundo);
+                    padding: 5px;
+                    border-radius: 20px;
+                }
 
                 & h1 {
                     width: 100%;

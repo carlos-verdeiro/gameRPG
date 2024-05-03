@@ -18,20 +18,29 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     $inventario = $_SESSION['inventario'];
     $_SESSION['localAtual'] == 'hall';
 
+    if (isset($_GET['semVerificacao'])) {
+        echo '<script>Você não possui verificações!</script>';
+    }
+
     if (isset($_GET['verificacao']) && $_GET['verificacao'] == true) {
 
-        if (isset($_SESSION['inventario']['verificacoes'])) {
+        if ($_SESSION['inventario']['verificacoes'] > 0) {
+            if (isset($_SESSION['inventario']['verificacoes'])) {
 
-            $_SESSION['inventario']['verificacoes'] += 1;
+                $_SESSION['inventario']['verificacoes']--;
 
-            if (verificacaoItens($inventario)) {
-                header("Location: hall.php?resVerificacao=true");
-            } else {
-                header("Location: hall.php?resVerificacao=false");
+                if (verificacaoItens($inventario)) {
+                    header("Location: hall.php?resVerificacao=true");
+                } else {
+                    header("Location: hall.php?resVerificacao=false");
+                }
+
             }
-
+        } else {
+            header("Location: hall.php?semVerificacao");
         }
     }
+
     if (isset($_GET["logout"])) {
         session_unset();
         session_destroy();
@@ -61,45 +70,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <main id="telaPrincipal">
         <section id="section1">
             <div id="inventario">
-                <ul>
-                    <?php
-
-                    if (isset($inventario)) {
-                        if ($inventario['revista']) {
-                            echo '<li><img src="../../assets/img/inventario/revistaPossui.svg" class="possui" alt="Possui Revista" title="Possui Revista"></li>';
-                        } else {
-                            echo '<li><img src="../../assets/img/inventario/revistaNaoPossui.svg" class="naoPossui" alt="Não Possui Revista" title="Não Possui Revista"></li>';
-                        }
-                        if ($inventario['livro']) {
-                            echo '<li><img src="../../assets/img/inventario/livroPossui.svg" class="possui" alt="Possui Livro" title="Possui Livro"></li>';
-                        } else {
-                            echo '<li><img src="../../assets/img/inventario/livroNaoPossui.svg" class="naoPossui" alt="Não Possui Livro" title="Não Possui Livro"></li>';
-                        }
-
-                        if ($inventario['panela']) {
-                            echo '<li><img src="../../assets/img/inventario/panelaPossui.svg" class="possui" alt="Possui Panela" title="Possui Panela"></li>';
-                        } else {
-                            echo '<li><img src="../../assets/img/inventario/panelaNaoPossui.svg" class="naoPossui" alt="Não Possui Panela" title="Não Possui Panela"></li>';
-                        }
-
-                        if ($inventario['faca']) {
-                            echo '<li><img src="../../assets/img/inventario/facaPossui.svg" class="possui" alt="Possui Faca" title="Possui Faca"></li>';
-                        } else {
-                            echo '<li><img src="../../assets/img/inventario/facaNaoPossui.svg" class="naoPossui" alt="Não Possui Faca" title="Não Possui Faca"></li>';
-                        }
-
-                        if ($inventario['chaveInferior']) {
-                            echo '<li><img src="../../assets/img/inventario/chavePossui.svg" class="possui" alt="Possui Chave Inferior" title="Possui Chave Inferior"></li>';
-                        } else {
-                            echo '<li><img src="../../assets/img/inventario/chaveNaoPossui.svg" class="naoPossui" alt="Não Possui Chave Inferior" title="Não Possui Chave Inferior"></li>';
-                        }
-
-                        echo '<li class="verificacao">Verificações: ' . $inventario['verificacoes'] . '</li>';
-
-                    }
-
-                    ?>
-                </ul>
+                <?php include_once('../templates/inventario.php')?>
             </div>
             <div id="divMapa">
                 <img src="../../assets/img/map.svg" alt="mapa" onclick="openPopup('popupMapa')">
@@ -124,7 +95,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                         <div class="arrow">
                             << </div>
                     </a>
-                     <a href="pSuperior.php" class="button">
+                    <a href="pSuperior.php" class="button">
                         <h3>Piso superior</h3>
                         <div class="arrow">
                             << </div>
@@ -139,6 +110,11 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
             </div>
             <div id="divPergunta">
                 <content>
+                    <?php
+                    if (isset($_GET["semVerificacao"])) {
+                        echo "<span class='msgAlert'>Você não possui verificação!</span>";
+                    }
+                    ?>
                     <h1>Deseja verificar?</h1>
                     <p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>
                 </content>
