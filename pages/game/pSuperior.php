@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
-
+    
     $inventario = $_SESSION['inventario'];
     $_SESSION['localAtual'] = 'pSuperior';
 
