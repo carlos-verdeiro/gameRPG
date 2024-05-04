@@ -35,6 +35,11 @@
     background-image: url(../../assets/img/background/pisoSuperior.jpg);
 }
 
+#pInferior {
+    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+    /*FALTA*/
+}
+
 #corredor2{
     background-image: url(../../assets/img/background/pisoSuperior.jpg);
 }
@@ -60,7 +65,17 @@
 }
 
 #salaSecreta {
-    background-image: url(../../assets/img/background/sotao.jpg);
+    background-image: url(../../assets/img/background/salaSecreta.jpg);
+    /*FALTA*/
+}
+
+#adega{
+    background-image: url(../../assets/img/background/adega.jpg);
+    /*FALTA*/
+}
+
+#porao{
+    background-image: url(../../assets/img/background/porao.jpg);
     /*FALTA*/
 }
 
