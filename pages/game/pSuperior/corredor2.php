@@ -17,6 +17,8 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         header('Location: ../../../index.php');
         exit;
     }
+}else {
+    header('Location: ../../../index.php');
 }
 ?>
 
@@ -67,6 +69,11 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                     </a>
                     <a href="sotao.php" class="button">
                         <h3>Sótao</h3>
+                        <div class="arrow">
+                            << </div>
+                    </a>
+                    <a href="salaSecreta.php" class="button">
+                        <h3>Sala Secreta</h3>
                         <div class="arrow">
                             << </div>
                     </a>

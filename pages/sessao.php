@@ -4,9 +4,7 @@ session_start();
 
 if (isset($_SESSION['status']) && isset($_GET['continuar'])) {
 
-    $status = $_SESSION['status'];
     $localAtual = $_SESSION['localAtual'];
-
 
     header("Location: game/{$localAtual}.php");
     exit;
@@ -16,10 +14,10 @@ if (isset($_SESSION['status']) && isset($_GET['continuar'])) {
         'revista' => false,
         'livro' => false,
         'panela' => false,
-        'faca' => true,
+        'faca' => false,
         'chaveInferior' => false,
-        'chaveSecreta' => false,
-        'verificacoes' => 3
+        'chaveSecreta' => true,
+        'verificacoes' => 0
     ];
     $_SESSION['localAtual'] = 'hall';
 

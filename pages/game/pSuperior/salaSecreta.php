@@ -2,23 +2,22 @@
 
 session_start();
 
-if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
-
-    if (isset($_SESSION['inventario'])) {
-
-        $itens = $_SESSION['inventario'];
-
-        $itemAleatorio = array_rand($itens);
-        while ($itemAleatorio == 'verificacoes') {
-            $itemAleatorio = array_rand($itens);
-        }
-        $_SESSION['inventario'][$itemAleatorio] = false;
+function verificacaoItens($inv)
+{
+    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca'] && !$inv['chaveInferior'] && $inv['verificacoes'] == 3) {
+        return true;
+    } else {
+        return false;
     }
 
-    $_SESSION['inventario']['verificacoes']++;
+}
+
+if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
+
+    include_once ('../../templates/manipularInventario.php');
 
     $inventario = $_SESSION['inventario'];
-    $_SESSION['localAtual'] = 'pSuperior/sotao';
+    $_SESSION['localAtual'] = 'pSuperior/salaSecreta';
 
     if (isset($_GET["logout"])) {
         session_unset();
@@ -30,7 +29,6 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         header('Location: ../../../index.php');
         exit;
     }
-
 }else {
     header('Location: ../../../index.php');
 }
@@ -45,11 +43,11 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../assets/css/jogo.css">
-    <title>A Busca pelo Graal - Sótao</title>
+    <title>A Busca pelo Graal - Sala secreta</title>
 </head>
 
 <body>
-    <main class="telaPrincipal" id="sotao">
+    <main class="telaPrincipal" id="salaSecreta">
         <section id="section1">
             <div id="inventario">
                 <?php $pathImagens = '../../../';
@@ -64,40 +62,66 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         </section>
         <section id="section2">
             <div id="local">
-                <h3>Cômodo atual: Sótao</h3>
+                <h3>Cômodo atual: Sala Secreta</h3>
             </div>
         </section>
         <section id="section3">
             <div id="mudarComodo">
-                <div id="subComodo">
+                <?php
+
+                if (!$_SESSION['inventario']['chaveSecreta']) {
+                    echo '<div id="subComodo">
                     <h3>Mudar Cômodo</h3>
                     <a href="corredor2.php" class="button">
                         <h3>Corredor 2</h3>
                         <div class="arrow">
                             << </div>
                     </a>
-                </div>
+                </div>';
+                }
+                ?>
             </div>
             <div id="divPergunta">
                 <content>
-                    <h1>Sótao</h1>
-                    <?php
-                    echo'<p>Você ganhou uma verificação, mas pode ter perdido algum item do seu inventario!</p>';
 
+                    <?php
+
+                    if (!$_SESSION['inventario']['chaveSecreta']) {
+                        echo '<h1>Sala Secreta</h1>';
+                        echo '<p>Você não possui a chave secreta!</p>';
+                    } else {
+                        if (verificacaoItens($inventario)) {
+                            echo '<h1>PARABÉNS!</h1>';
+                            echo '<p>Você alcançou o tesouro!</p>';
+                        } else {
+                            echo '<h1>Você morreu!</h1>';
+                            echo '<p>Deseja recomeçar?</p>';
+                        }
+                    }
                     ?>
+
                 </content>
             </div>
             <div id="divDica">
-                <div id="dica">
 
-                    <h2>Dica</h2>
-
-                    <h4>No sótao você ganha uma verificação, mas pode perde um item aleatório</h4>
-
-                </div>
             </div>
         </section>
         <section id="section4">
+            <?php
+
+            if (!$_SESSION['inventario']['chaveSecreta']) {
+                echo '<form action="corredor2.php" method="post" class="respostas">
+                        <input type="submit" value="Retornar" class="submitItem">
+                    </form>';
+            } else {
+
+                echo '<form action="../../../index.php" method="post" class="respostas">
+                        <input type="submit" value="Voltar ao menu principal" class="submitItem">
+                    </form>';
+            }
+            ?>
+
+
 
         </section>
         <section id="section5">
@@ -124,3 +148,11 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
 <script src="../../../assets/js/popups.js"></script>
 
 </html>
+
+<?php
+
+if ($_SESSION['inventario']['chaveSecreta']) {
+    $_SESSION['status'] = 'finalizado';
+}
+
+?>

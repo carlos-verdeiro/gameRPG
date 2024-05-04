@@ -17,6 +17,8 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         header('Location: ../../index.php');
         exit;
     }
+}else {
+    header('Location: ../../index.php');
 }
 ?>
 
