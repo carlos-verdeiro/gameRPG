@@ -14,8 +14,6 @@ function verificacaoItens($inv)
 
 if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
 
-    include_once ('../templates/manipularInventario.php');
-
     $inventario = $_SESSION['inventario'];
     $_SESSION['localAtual'] == 'hall';
 
@@ -65,11 +63,11 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/jogo.css">
-    <title>A Busca pelo Graal</title>
+    <title>A Busca pelo Graal - Hall</title>
 </head>
 
 <body>
-    <main id="telaPrincipal">
+    <main class="telaPrincipal" id="hall">
         <section id="section1">
             <div id="inventario">
                 <?php include_once ('../templates/inventario.php') ?>
@@ -124,7 +122,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                     <p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>
                 </content>
             </div>
-            <div id="divSeparador">
+            <div id="divDica">
 
             </div>
         </section>
@@ -132,12 +130,6 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
             <a href="?verificacao=true" id="verificacao" class="respostas">
                 Verificar
             </a>
-
-            <form action="" method="post" class="respostas">
-                <input type="hidden" name="addItem" value="panela">
-                <input type="submit" value="Pegar Panela" class="submitItem">
-            </form>
-
         </section>
         <section id="section5">
             
