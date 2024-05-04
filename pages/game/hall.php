@@ -4,7 +4,7 @@ session_start();
 
 function verificacaoItens($inv)
 {
-    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca'] && !$inv['chaveInferior'] && $inv['verificacoes'] < 3) {
+    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca'] && !$inv['chaveInferior'] && $inv['verificacoes'] == 3) {
         return true;
     } else {
         return false;
@@ -15,7 +15,7 @@ function verificacaoItens($inv)
 if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
 
     $inventario = $_SESSION['inventario'];
-    $_SESSION['localAtual'] == 'hall';
+    $_SESSION['localAtual'] = 'hall';
 
     if (isset($_GET['semVerificacao'])) {
         echo '<script>Você não possui verificações!</script>';
@@ -29,9 +29,9 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                 $_SESSION['inventario']['verificacoes']--;
 
                 if (verificacaoItens($inventario)) {
-                    header("Location: hall.php?resVerificacao=true");
+                    header("Location: hall.php?VerificacaoTrue");
                 } else {
-                    header("Location: hall.php?resVerificacao=false");
+                    header("Location: hall.php?VerificacaoFalse");
                 }
 
             }
@@ -70,7 +70,8 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <main class="telaPrincipal" id="hall">
         <section id="section1">
             <div id="inventario">
-                <?php include_once ('../templates/inventario.php') ?>
+                <?php $pathImagens = '../../';
+                include_once ('../templates/inventario.php') ?>
             </div>
             <div id="divMapa">
                 <img src="../../assets/img/map.svg" alt="mapa" onclick="openPopup('popupMapa')">
@@ -117,9 +118,19 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                     if (isset($_GET["semVerificacao"])) {
                         echo "<span class='msgAlert'>Você não possui verificações!</span>";
                     }
+                    if (isset($_GET["VerificacaoTrue"])) {
+                            echo '<h1>Resultado</h1>';
+                            echo '<p>Você possui todos os itens necessários</p>';
+                    }else if (isset($_GET["VerificacaoFalse"])) {
+                            echo '<h1>Resultado</h1>';
+                            echo '<p>Você não possui os itens necessários</p>';
+                        
+                    } else {
+                        echo '<h1>Deseja verificar?</h1>';
+                        echo '<p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>';
+                    }
                     ?>
-                    <h1>Deseja verificar?</h1>
-                    <p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>
+
                 </content>
             </div>
             <div id="divDica">
@@ -132,7 +143,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
             </a>
         </section>
         <section id="section5">
-            
+
         </section>
     </main>
 </body>

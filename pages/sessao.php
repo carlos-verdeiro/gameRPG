@@ -2,7 +2,7 @@
 
 session_start();
 
-if (isset($_SESSION['status'])&&isset($_GET['continuar'])) {
+if (isset($_SESSION['status']) && isset($_GET['continuar'])) {
 
     $status = $_SESSION['status'];
     $localAtual = $_SESSION['localAtual'];
@@ -16,9 +16,10 @@ if (isset($_SESSION['status'])&&isset($_GET['continuar'])) {
         'revista' => false,
         'livro' => false,
         'panela' => false,
-        'faca' => false,
-        'chave' => false,
-        'verificacoes' => 0
+        'faca' => true,
+        'chaveInferior' => false,
+        'chaveSecreta' => false,
+        'verificacoes' => 3
     ];
     $_SESSION['localAtual'] = 'hall';
 

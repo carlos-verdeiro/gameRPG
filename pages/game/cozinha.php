@@ -2,15 +2,6 @@
 
 session_start();
 
-function verificacaoItens($inv)
-{
-    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca'] && !$inv['chaveInferior'] && $inv['verificacoes'] < 3) {
-        return true;
-    } else {
-        return false;
-    }
-
-}
 //pergunta----------
 if (isset($_POST['resposta']) && isset($_POST['indicePergunta'])) {
     $indice_pergunta = $_POST['indicePergunta'];
@@ -48,7 +39,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     include_once ('../templates/manipularInventario.php');
 
     $inventario = $_SESSION['inventario'];
-    $_SESSION['localAtual'] == 'cozinha';
+    $_SESSION['localAtual'] = 'cozinha';
 
     if (isset($_GET["logout"])) {
         session_unset();
@@ -79,7 +70,8 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <main class="telaPrincipal" id="cozinha">
         <section id="section1">
             <div id="inventario">
-                <?php include_once ('../templates/inventario.php') ?>
+                <?php $pathImagens = '../../';
+                include_once ('../templates/inventario.php') ?>
             </div>
             <div id="divMapa">
                 <img src="../../assets/img/map.svg" alt="mapa" onclick="openPopup('popupMapa')">
@@ -161,7 +153,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                             <input type="submit" value="Largar Panela" class="submitItem">
                         </form>
                         ';
-                    }else {
+                    } else {
                         echo '
                     <form action="" method="post" class="respostas">
                         <input type="hidden" name="addItem" value="panela">

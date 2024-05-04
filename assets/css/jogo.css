@@ -31,8 +31,32 @@
     background-image: url(../../assets/img/background/biblioteca.jpg);
 }
 
-#pSuperior{
-    
+#pSuperior {
+    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+}
+
+#corredor2{
+    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+}
+
+#quarto1 {
+    background-image: url(../../assets/img/background/quarto1.jpg);
+}
+
+#quarto2 {
+    background-image: url(../../assets/img/background/quarto2.jpg);
+}
+
+#quarto3 {
+    background-image: url(../../assets/img/background/quarto1.jpg);
+}
+
+#empregados {
+    background-image: url(../../assets/img/background/quarto2.jpg);
+}
+
+#sotao {
+    background-image: url(../../assets/img/background/sotao.jpg);
 }
 
 .telaPrincipal {
@@ -89,6 +113,7 @@
                     & .naoPossui {
                         color: red;
                     }
+
                 }
 
                 & .verificacao {
@@ -278,6 +303,8 @@
                 overflow-y: auto;
 
                 & .msgAlert {
+                    width: 70%;
+                    text-align: center;
                     font-size: 20px;
                     font-weight: 600;
                     color: var(--preto);
@@ -322,6 +349,7 @@
                 overflow-y: auto;
                 overflow-x: hidden;
                 gap: 10px;
+                text-align: center;
 
             }
         }
