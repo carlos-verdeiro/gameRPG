@@ -84,7 +84,7 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         </section>
         <section id="section2">
             <div id="local">
-                <h3>Cômodo atual: Adega</h3>
+                <h3>Cômodo atual: Porão</h3>
             </div>
         </section>
         <section id="section3">
