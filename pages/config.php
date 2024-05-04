@@ -16,7 +16,7 @@
                 <a href="../index.php" class="voltar">Voltar</a>
             </div>
             <div class="divConfig">
-                
+
             </div>
         </section>
     </main>

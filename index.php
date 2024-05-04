@@ -15,10 +15,10 @@
             <?php
             session_start();
             if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
-                echo'<a href="pages/sessao.php?continuar" class="opcoes">Continuar Jogo</a>';
-                echo'<a href="pages/sessao.php" class="opcoes">Novo Jogo</a>';
-            }else{
-                echo'<a href="pages/sessao.php" class="opcoes">Novo Jogo</a>';
+                echo '<a href="pages/sessao.php?continuar" class="opcoes">Continuar Jogo</a>';
+                echo '<a href="pages/sessao.php" class="opcoes">Novo Jogo</a>';
+            } else {
+                echo '<a href="pages/sessao.php" class="opcoes">Novo Jogo</a>';
             }
             ?>
             <a href="pages/config.php" class="opcoes">Configurações</a>

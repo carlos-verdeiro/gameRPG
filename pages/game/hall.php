@@ -4,7 +4,7 @@ session_start();
 
 function verificacaoItens($inv)
 {
-    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca'] && !$inv['chaveInferior'] && $inv['verificacoes'] < 3) {
+    if (!$inv['revista'] && !$inv['livro'] && !$inv['panela'] && $inv['faca'] && !$inv['chaveInferior'] && $inv['verificacoes'] == 3) {
         return true;
     } else {
         return false;
@@ -14,10 +14,8 @@ function verificacaoItens($inv)
 
 if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
 
-    include_once ('../templates/manipularInventario.php');
-
     $inventario = $_SESSION['inventario'];
-    $_SESSION['localAtual'] == 'hall';
+    $_SESSION['localAtual'] = 'hall';
 
     if (isset($_GET['semVerificacao'])) {
         echo '<script>Você não possui verificações!</script>';
@@ -31,9 +29,9 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                 $_SESSION['inventario']['verificacoes']--;
 
                 if (verificacaoItens($inventario)) {
-                    header("Location: hall.php?resVerificacao=true");
+                    header("Location: hall.php?VerificacaoTrue");
                 } else {
-                    header("Location: hall.php?resVerificacao=false");
+                    header("Location: hall.php?VerificacaoFalse");
                 }
 
             }
@@ -53,6 +51,8 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
         header('Location: ../../index.php');
         exit;
     }
+}else {
+    header('Location: ../../index.php');
 }
 ?>
 
@@ -65,14 +65,15 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/jogo.css">
-    <title>A Busca pelo Graal</title>
+    <title>A Busca pelo Graal - Hall</title>
 </head>
 
 <body>
-    <main id="telaPrincipal">
+    <main class="telaPrincipal" id="hall">
         <section id="section1">
             <div id="inventario">
-                <?php include_once ('../templates/inventario.php') ?>
+                <?php $pathImagens = '../../';
+                include_once ('../templates/inventario.php') ?>
             </div>
             <div id="divMapa">
                 <img src="../../assets/img/map.svg" alt="mapa" onclick="openPopup('popupMapa')">
@@ -119,12 +120,22 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                     if (isset($_GET["semVerificacao"])) {
                         echo "<span class='msgAlert'>Você não possui verificações!</span>";
                     }
+                    if (isset($_GET["VerificacaoTrue"])) {
+                            echo '<h1>Resultado</h1>';
+                            echo '<p>Você possui todos os itens necessários</p>';
+                    }else if (isset($_GET["VerificacaoFalse"])) {
+                            echo '<h1>Resultado</h1>';
+                            echo '<p>Você não possui os itens necessários</p>';
+                        
+                    } else {
+                        echo '<h1>Deseja verificar?</h1>';
+                        echo '<p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>';
+                    }
                     ?>
-                    <h1>Deseja verificar?</h1>
-                    <p>Verificar se possui apenas os itens necessários para alcançar o tesouro secreto.</p>
+
                 </content>
             </div>
-            <div id="divSeparador">
+            <div id="divDica">
 
             </div>
         </section>
@@ -132,15 +143,9 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
             <a href="?verificacao=true" id="verificacao" class="respostas">
                 Verificar
             </a>
-
-            <form action="" method="post" class="respostas">
-                <input type="hidden" name="addItem" value="panela">
-                <input type="submit" value="Pegar Panela" class="submitItem">
-            </form>
-
         </section>
         <section id="section5">
-            
+
         </section>
     </main>
 </body>

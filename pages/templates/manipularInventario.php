@@ -15,8 +15,11 @@ if (isset($_POST["addItem"]) && $_POST["addItem"] != null) {
         case 'faca':
             $_SESSION['inventario']['faca'] = true;
             break;
-        case 'chave':
-            $_SESSION['inventario']['chave'] = true;
+        case 'chaveInferior':
+            $_SESSION['inventario']['chaveInferior'] = true;
+            break;
+        case 'chaveSecreta':
+            $_SESSION['inventario']['chaveSecreta'] = true;
             break;
     }
 }
@@ -36,8 +39,11 @@ if (isset($_POST["rmItem"]) && $_POST["rmItem"] != null) {
         case 'faca':
             $_SESSION['inventario']['faca'] = false;
             break;
-        case 'chave':
-            $_SESSION['inventario']['chave'] = false;
+        case 'chaveInferior':
+            $_SESSION['inventario']['chaveInferior'] = false;
+            break;
+        case 'chaveSecreta':
+            $_SESSION['inventario']['chaveSecreta'] = false;
             break;
     }
 }

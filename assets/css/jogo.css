@@ -19,15 +19,59 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#telaPrincipal {
+#hall {
+    background-image: url(../../assets/img/background/hall.jpg);
+}
+
+#cozinha {
+    background-image: url(../../assets/img/background/cozinha.jpg);
+}
+
+#biblioteca {
+    background-image: url(../../assets/img/background/biblioteca.jpg);
+}
+
+#pSuperior {
+    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+}
+
+#corredor2{
+    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+}
+
+#quarto1 {
+    background-image: url(../../assets/img/background/quarto1.jpg);
+}
+
+#quarto2 {
+    background-image: url(../../assets/img/background/quarto2.jpg);
+}
+
+#quarto3 {
+    background-image: url(../../assets/img/background/quarto1.jpg);
+}
+
+#empregados {
+    background-image: url(../../assets/img/background/quarto2.jpg);
+}
+
+#sotao {
+    background-image: url(../../assets/img/background/sotao.jpg);
+}
+
+#salaSecreta {
+    background-image: url(../../assets/img/background/sotao.jpg);
+    /*FALTA*/
+}
+
+.telaPrincipal {
     width: 100vw;
     height: 100vh;
-    background-image: url(../../assets/img/background/hall.jpg);
     background-size: 110% 110%;
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
-    
+
 
     & #section1 {
         width: 100%;
@@ -74,6 +118,7 @@
                     & .naoPossui {
                         color: red;
                     }
+
                 }
 
                 & .verificacao {
@@ -190,7 +235,7 @@
                 color: var(--branco);
                 border-radius: 50px;
                 overflow-y: auto;
-                overflow-x:hidden;
+                overflow-x: hidden;
                 gap: 10px;
 
                 & .button {
@@ -221,6 +266,7 @@
                         justify-content: center;
                     }
                 }
+
                 & .button:hover {
                     background-color: rgb(77, 77, 77);
                     transition-duration: .2s;
@@ -261,7 +307,9 @@
                 gap: 30px;
                 overflow-y: auto;
 
-                & .msgAlert{
+                & .msgAlert {
+                    width: 70%;
+                    text-align: center;
                     font-size: 20px;
                     font-weight: 600;
                     color: var(--preto);
@@ -284,9 +332,31 @@
             }
         }
 
-        & #divSeparador {
+        & #divDica {
             width: 32.5%;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            flex-direction: column;
+
+            #dica {
+                width: 50%;
+                height: 300px;
+                padding: 30px;
+                margin-left: 20px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                background-color: var(--fundo-inventario);
+                color: var(--branco);
+                border-radius: 50px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                gap: 10px;
+                text-align: center;
+
+            }
         }
     }
 
@@ -310,7 +380,7 @@
             font-size: 25px;
             box-shadow: 0px 0px 5px var(--cinza);
 
-            & .submitItem{
+            & .submitItem {
                 border: none;
                 background-color: inherit;
                 font-size: inherit;
