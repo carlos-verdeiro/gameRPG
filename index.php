@@ -21,7 +21,7 @@
                 echo '<a href="pages/sessao.php" class="opcoes">Novo Jogo</a>';
             }
             ?>
-            <a href="pages/config.php" class="opcoes">Configurações</a>
+            <!--<a href="pages/config.php" class="opcoes">Configurações</a> COMENTADO CASO PRECISE UTILIZAR-->
             <a href="pages/creditos.php" class="opcoes">Créditos</a>
         </section>
     </main>
