@@ -37,7 +37,6 @@
 
 #pInferior {
     background-image: url(../../assets/img/background/pisoSuperior.jpg);
-    /*FALTA*/
 }
 
 #corredor2{
@@ -53,7 +52,7 @@
 }
 
 #quarto3 {
-    background-image: url(../../assets/img/background/quarto1.jpg);
+    background-image: url(../../assets/img/background/quarto3.jpg);
 }
 
 #empregados {
@@ -61,22 +60,19 @@
 }
 
 #sotao {
-    background-image: url(../../assets/img/background/sotao.jpg);
+    background-image: url(../../assets/img/background/porao.jpg);
 }
 
 #salaSecreta {
-    background-image: url(../../assets/img/background/salaSecreta.jpg);
-    /*FALTA*/
+    background-image: url(../../assets/img/background/secreta.jpg);
 }
 
 #adega{
     background-image: url(../../assets/img/background/adega.jpg);
-    /*FALTA*/
 }
 
 #porao{
     background-image: url(../../assets/img/background/porao.jpg);
-    /*FALTA*/
 }
 
 .telaPrincipal {
