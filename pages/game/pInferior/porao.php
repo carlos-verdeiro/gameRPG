@@ -75,9 +75,6 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
                 <?php $pathImagens = '../../../';
                 include_once ('../../templates/inventario.php') ?>
             </div>
-            <div id="divMapa">
-                <img src="../../../assets/img/map.svg" alt="mapa" onclick="openPopup('popupMapa')">
-            </div>
             <div id="configuracao">
                 <img src="../../../assets/img/config.svg" alt="configurações" onclick="openPopup('popupConfig')">
             </div>
@@ -163,11 +160,6 @@ if (isset($_SESSION["status"]) && $_SESSION["status"] == "iniciado") {
     </main>
 </body>
 <!--TODOS POPUS-->
-<div id="popupMapa" class="popup">
-    <img src="../../../assets/img/exit.svg" id="closeBtnMapa " class="closeBtnPopup" onclick="closePopup('popupMapa')">
-    <h2>MAPA</h2>
-    <p>Aqui vai aparecer o mapa</p>
-</div>
 
 <div id="popupConfig" class="popup">
     <img src="../../../assets/img/exit.svg" id="closeBtnConfig " class="closeBtnPopup"
