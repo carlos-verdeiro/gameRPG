@@ -32,15 +32,15 @@
 }
 
 #pSuperior {
-    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+    background-image: url(../../assets/img/background/corredor.jpg);
 }
 
 #pInferior {
-    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+    background-image: url(../../assets/img/background/supInf.png);
 }
 
 #corredor2{
-    background-image: url(../../assets/img/background/pisoSuperior.jpg);
+    background-image: url(../../assets/img/background/corredor.jpg);
 }
 
 #quarto1 {
@@ -56,11 +56,11 @@
 }
 
 #empregados {
-    background-image: url(../../assets/img/background/quarto2.jpg);
+    background-image: url(../../assets/img/background/empregados.jpg);
 }
 
 #sotao {
-    background-image: url(../../assets/img/background/porao.jpg);
+    background-image: url(../../assets/img/background/sotao.jpg);
 }
 
 #salaSecreta {
